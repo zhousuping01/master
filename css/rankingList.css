@@ -1,0 +1,30 @@
+
+body{
+    background:url("../img/ListBg.png") no-repeat ;
+    background-size:100% 640px;
+    color:#ffc;
+}
+.ranking{
+    /*background-color: green;*/
+    width: 60%;
+    height:360px;
+    margin: 240px auto 0;
+    /*border: deeppink;*/
+}
+.rankingList{
+    width:100%;
+    text-align: center;
+}
+table{
+    border-collapse:collapse;
+}
+table tr{
+ border-radius: 20px;
+}
+
+.rankingList tr:nth-child(odd){
+    background-color: blue;
+}
+.rankingList tr:nth-child(even){
+    background-color: darkblue;
+}

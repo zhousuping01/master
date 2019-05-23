@@ -1,0 +1,73 @@
+/*css*/
+/*通用样式*/
+body{
+    background: #70ceeb;
+}
+ul,li{
+    background: rgba(245,233,234,0.5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.content{
+    width: 20%;
+    margin:100px auto;
+    text-align: center;
+}
+/*下拉框样式*/
+#select,#select1,#select2{
+    background: rgba(0,0,0,255);
+    width: 249px;
+    height: 40px;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: white;
+    border: 1px #1a1a1a solid;
+    border-radius: 5px;
+}
+/*#select1{*/
+    /*background: rgba(0,0,0,255);*/
+    /*width: 249px;*/
+    /*height: 40px;*/
+    /*font-family: "微软雅黑";*/
+    /*font-size: 18px;*/
+    /*color: white;*/
+    /*border: 1px #1a1a1a solid;*/
+    /*border-radius: 5px;*/
+/*}*/
+.select-head,.select-head1,.select-head2 {
+    background-color: #c9b82f;
+    overflow: hidden;
+    width: 249px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    line-height: 40px;
+}
+.select-head .select-head-cont,.select-head1 .select-head-cont1,.select-head2 .select-head-cont2{
+    float: left;
+}
+.select-head .select-icon,.select-head1 .select-icon1,.select-head2 .select-icon2{
+    float: right;
+}
+.option,.option1,.option2{
+    margin: 1px auto;
+    text-indent: 10px;
+    /*margin-top: 1px;*/
+    width: 249px;
+    color: black;
+    background: rgba(236,111,111,0.1);
+    line-height: 25px;
+    border: 1px #cfcfcf solid;
+    display: none;
+}
+.option-item:hover,.option-item1:hover,.option-item2:hover{
+    background: rgba(204,106,67,0.3);
+}
+.button{
+    margin-top:10px;
+}
+.backG{
+    display:block;
+    margin:10px;
+}

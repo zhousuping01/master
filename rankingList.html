@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <link rel="stylesheet" href="css/rankingList.css">
+
+</head>
+<body>
+<div class="ranking">
+    <table class="rankingList" id="rankingList">
+        <tr><td>排名</td><td>用户昵称</td><td>用户分数</td></tr>
+    </table>
+</div>
+<script>
+let tableHtml = "<tr><td>排名</td><td>用户昵称</td><td>用户分数</td></tr>";
+const tableData = JSON.parse(window.localStorage.getItem("rank"));
+
+
+
+// tableData.sort();
+// tableData.reverse();
+
+console.log(tableHtml,"tableHtml")
+    document.getElementById("rankingList").innerHTML = tableHtml;
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>贪吃蛇</title>
+  <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.bootcss.com/jquery-confirm/3.2.3/jquery-confirm.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+    <script src="https://cdn.bootcss.com/jquery-confirm/3.2.3/jquery-confirm.min.js "></script>
+    <script src="https://cdn.bootcss.com/jquery.form/4.2.1/jquery.form.js"></script>
+</head>
+
+<body>
+    <div id="btn" class="btn">
+        <div>
+            <span id="thisNum">本局成绩：0</span>
+            <span id="maxScore">全场最高分：0</span>
+        </div>
+        <button id="btn1">开始</button>
+        <button id="btn2">停止</button>
+        <button id="btn3">设置</button>
+        <button id="btn4">查看排行榜</button>
+    </div>
+
+
+
+  <!-- 地图 -->
+  <div id="map">
+  </div>
+  <!-- 模态框 - 死亡提示 -->
+  <div class="dead">
+    <h1>蛇撞墙死了，┭┮﹏┭┮</h1>
+    请输入您的昵称：
+    <input class="input" id="input" type="text">
+    <span id="restart">提交</span>
+  </div>
+
+  <!-- 测试 -->
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <!-- 食物程序 -->
+  <script src="./js/food.js"></script>
+  <script src="./js/snake.js"></script>
+  <script src="./js/game.js"></script>
+  <script>
+      // images: ['images1/11.jpg', 'images1/22.jpg', 'images1/33.jpg'],
+      $("#btn3").click(function () {
+          window.location.href = '/snake-master/settings.html';
+      });
+      $("#btn4").click(function () {
+          window.location.href = '/snake-master/rankingList.html';
+      });
+
+      const chooseBankG = window.localStorage.getItem('backG');
+    for(let n=0;n<4;n++){
+        if(chooseBankG == n){
+            // console.log(222)
+            $("#map").css("background","url(./img/backG"+n+".png) no-repeat");
+            console.log(document.body.offsetWidth,"body的宽度")
+            console.log(document.body.offsetHeight,"body的高度")
+            const width = document.body.offsetWidth;
+            const height = window.screen.height;
+            $("#map").css("height",height);
+            console.log( $("#map").css("height"));
+            console.log( $("#map").css("background"));
+            console.log( $("#map").css("background-size"));
+            // $("#map").css.background = "url(../img/backG1.png)";
+        }
+    }
+      $("#thisNum")[0].innerText="本局成绩："+num;
+      const tableData = JSON.parse(window.localStorage.getItem("rank"));
+      let max;
+      if(tableData === null||tableData==='null'){
+          max = 0;
+      }else{
+          for(let i=0;i<tableData.length;i++){
+              for(let j=0;j<tableData.length;j++){
+                  if(tableData[i].maxScore>tableData[j].maxScore){
+                      let temp ;
+                      temp = tableData[i];
+                      tableData[i] = tableData[j];
+                      tableData[j] = temp;
+                  }
+              }
+          }
+          max = (tableData[0].maxScore === "null"||tableData[0].maxScore === null)?0:tableData[0].maxScore;
+      }
+      $("#maxScore")[0].innerText="历史最高分："+max;
+    var game = new Game()
+    $('#btn1').click(function () {
+      game.start()
+    })
+    $('#btn2').click(function () {
+      game.stop()
+    })
+    $('span').click(function () {
+      game.reStart()
+    })
+      $("#restart").onclick = function () {
+          window.localStorage.setItem("userName",$("#input").value);
+      }
+
+  </script>
+</body>
+
+</html>
